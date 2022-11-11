@@ -13,12 +13,16 @@ const ItemCount = () => {
         }
     }
     return (
-        <div className='d-flex mx-auto col-sm-7'>
+        <div className='d-flex col-sm-6'>
             <div className="btn btn-outline-dark mt-auto" onClick={() => modContador("-")}>{"<"}</div>
-            <div className="form-control text-center mx-1">
+            <div className="form-control text-center mx-0" style={{maxWidth: '3rem'}}>
                 {contador}
             </div>
             <div className="btn btn-outline-dark mt-auto" onClick={() => modContador("+")}>{">"}</div>
+            <button className="btn btn-outline-dark flex-shrink-0 mx-3" type="button">
+                <i className="bi-cart-fill me-1" />
+                Agregar
+            </button>
         </div>
     );
 }

@@ -1,10 +1,13 @@
 import React from 'react'
-import ItemCount from './ItemCount'
+import { Link } from 'react-router-dom'
 
-export default function Item({id, title, thumbnail, price, stock}) {
+export default function Item({id, title, thumbnail, price}) {
+  const urlDetalle = `/detalle/${id}`
   return (
     <div className="col mb-5" key={id}>
       <div className="card h-100">
+        <Link to="/detalle">
+        </Link>
         <img className="card-img-top" src={thumbnail} alt={title} />        
         <div className="card-body p-4">
           <div className="text-center">
@@ -14,8 +17,7 @@ export default function Item({id, title, thumbnail, price, stock}) {
         </div>
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
           <div className="text-center">
-            <ItemCount/>
-            <a className="btn btn-outline-dark mt-3 px-4" id={id} href="#">Add to cart</a>
+            <Link to={urlDetalle} className="btn btn-outline-dark mt-3 px-4" id={id} href="#">Ver Producto</Link>
           </div>
         </div>
       </div>
