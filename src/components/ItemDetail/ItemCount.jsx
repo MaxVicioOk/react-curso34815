@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 
-const ItemCount = () => {
+const ItemCount = ({max}) => {
 
     const [contador, setContador] = useState(1)
     function modContador(operacion) {
-        if(operacion === "+"){
+        if(operacion === "+" && contador < max){
             setContador(contador + 1)
         }else{
-            if(contador > 1){
+            if(operacion === "-" && contador > 1){
                 setContador(contador - 1)
             }
         }

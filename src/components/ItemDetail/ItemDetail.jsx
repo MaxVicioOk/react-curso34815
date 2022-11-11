@@ -1,7 +1,7 @@
 import React from 'react'
-import ItemCount from '../ItemList/ItemCount'
+import ItemCount from './ItemCount'
 
-export default function ItemDetail({id, thumbnail, title, price, description}) {
+export default function ItemDetail({id, thumbnail, title, price, description, stock}) {
   return (
     <div className="row gx-4 gx-lg-5 align-items-center">
         <div className="col-md-6"><img className="card-img-top mb-5 mb-md-0" src={`${thumbnail}`} alt={title} /></div>
@@ -14,7 +14,7 @@ export default function ItemDetail({id, thumbnail, title, price, description}) {
           </div>
           <p className="lead">{description}</p>
           <div className="d-flex">
-            <ItemCount/>
+            <ItemCount max={stock}/>
           </div>
         </div>
       </div>
