@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const ItemCount = ({max}) => {
+const ItemCount = ({max, agregarContador}) => {
 
     const [contador, setContador] = useState(1)
     function modContador(operacion) {
@@ -19,7 +19,7 @@ const ItemCount = ({max}) => {
                 {contador}
             </div>
             <div className="btn btn-outline-dark mt-auto" onClick={() => modContador("+")}>{">"}</div>
-            <button className="btn btn-outline-dark flex-shrink-0 mx-3" type="button">
+            <button onClick={()=>agregarContador(contador)} className="btn btn-outline-dark flex-shrink-0 mx-3" type="button">
                 <i className="bi-cart-fill me-1" />
                 Agregar
             </button>

@@ -1,30 +1,22 @@
 import React from 'react'
 import ItemDetail from './ItemDetail'
-import { SingleItem } from '../ItemList/ItemList'
+import { SingleProduct } from '../../data/database'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import Loader from '../Loader/Loader'
 
 export default function ItemDetailContainer() {
-  const [product, setProduct] = useState([])
+  const [product, setProduct] = useState(null)
   const { id } = useParams();
   useEffect(()=>{
-    SingleItem(id).then((res)=>{
+    SingleProduct(id).then((res)=>{
       setProduct(res)}
     )
-  },[])
+  },[id])
   return (
   <section className="py-5">
     <div className="container px-4 px-lg-5 my-5">
-      <ItemDetail
-        key={product.id}
-        id={product.id}
-        thumbnail={product.thumbnail}
-        title={product.title}
-        price={product.price}
-        category={product.category}
-        stock={product.stock}
-        description={product.description}
-      />
+    {product === null? <div className='d-flex justify-content-center mt-5 pt-5' style={{minHeight: '100vh'}}> <Loader/> </div> : <ItemDetail product={product}/>}
     </div>
   </section>
   )

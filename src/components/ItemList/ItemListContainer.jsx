@@ -1,37 +1,25 @@
 import {useState, useEffect} from 'react'
-import Item from './Item'
-import ItemList from './ItemList'
+import GetProducts from '../../data/database'
 import { useParams } from 'react-router-dom'
+import ItemList from './ItemList'
+import Loader from '../Loader/Loader'
 
 export default function ItemListContainer() {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState(null)
   const { categoryId } = useParams()
 
   useEffect(()=>{
-    ItemList(categoryId).then((res)=>{
+    GetProducts(categoryId).then((res)=>{
       setProducts(res)}
     )
   },[categoryId])
-
-  return (
-    <section className="py-5" style={{minHeight: '100vh'}}>
-      <div className="container px-4 px-lg-5 mt-5">
-        <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="seccion-cards">
-          {products.map(({id, thumbnail, title, price, category, stock})=>{
-            return(
-              <Item
-                key={id}
-                id={id}
-                thumbnail={thumbnail}
-                title={title}
-                price={price}
-                category={category}
-                stock={stock}/>
-              )
-            }
-          )}
-        </div>
-      </div>
-    </section>      
-  )
+  if(products === null){
+    return <section className="py-5" style={{minHeight: '100vh'}}>
+        <div className='d-flex justify-content-center pt-5 mt-5'> <Loader/> </div>
+      </section>
+  }else{
+    return (
+      <ItemList products={products}/>  
+      )
+    }
 }

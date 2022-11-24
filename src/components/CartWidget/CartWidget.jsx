@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { cartContext } from '../Context/cartContext';
 
 const CartWidget = () => {
+    const context = useContext(cartContext)
     return (
-            <button className="btn btn-outline-dark" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i className="bi-cart-fill me-1" />
-                Carrito
-                <span className="badge bg-dark text-white ms-1 rounded-pill" id="total-carrito">0</span>
-            </button>
+        <Link to={"/carrito"}>
+        <button className="btn btn-outline-dark" type="submit">
+            <i className="bi-cart-fill me-1" />
+            Carrito
+            {context.itemsInCart() !== 0 && <span className="badge bg-dark text-white ms-1 rounded-pill" id="total-carrito">{context.itemsInCart()}</span>}
+        </button>
+        </Link>
     );
 }
 
