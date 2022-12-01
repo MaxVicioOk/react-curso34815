@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import ItemListContainer from './components/ItemList/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
-import { CartContextProvider } from './components/Context/cartContext';
+import { CartContextProvider } from './context/cartContext';
 import CartView from './components/CartView/CartView';
 
 function App() {

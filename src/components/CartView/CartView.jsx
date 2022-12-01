@@ -1,9 +1,12 @@
 import React, {useContext} from 'react'
 import { Link } from 'react-router-dom'
-import { cartContext } from '../Context/cartContext'
+import { cartContext } from '../../context/cartContext'
 
 export default function CartView() {
     const {cart, clear, removeItem, priceInCart} = useContext(cartContext)
+    function finalizarCompra(e){
+        console.log(e)
+    }
     return (
         <div className='text-center' style={{minHeight: '52vh'}}>
             {cart.length === 0? <div className='m-5'>
@@ -37,7 +40,10 @@ export default function CartView() {
                 <p className="col-4 fw-bolder lead text-decoration-underline">Total:</p>
                 <div className="col-4 fw-bolder lead">${priceInCart()}</div>
             </div></>}
-            {cart.length>0 && <button className='btn btn-danger my-3' onClick={clear}>Vaciar Carrito</button>}
+            {cart.length>0 && <div className='row col-2 mx-auto'>
+                <button className='btn btn-danger my-3' onClick={clear}>Vaciar Carrito</button>
+                <button className='btn btn-primary my-3' onClick={clear}>Finalizar Compra</button>
+            </div>}
         </div>
     )
 }

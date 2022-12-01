@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import GetProducts from '../../data/database'
+import GetProducts from '../../Service/firestore'
 import { useParams } from 'react-router-dom'
 import ItemList from './ItemList'
 import Loader from '../Loader/Loader'

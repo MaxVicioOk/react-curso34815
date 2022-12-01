@@ -1,9 +1,9 @@
 import {useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from './ItemCount'
-import { cartContext } from '../Context/cartContext'
+import { cartContext } from '../../context/cartContext'
 
-export default function ItemDetail({product}) {
+export default function ItemDetail({product, productos}) {
   
   const { addToCart } = useContext(cartContext) // llamo al contexto el contexto
   
@@ -12,12 +12,14 @@ export default function ItemDetail({product}) {
   const {id, thumbnail, title, price, description, stock} = product
 
   function GetPage(p){
-    if (4 > id  && p === "+"){
-      return id+1
-    }else if(id > 1  && p === "-"){
-      return id-1
+    let iProducto = productos.findIndex((prod)=> prod.id === product.id)
+    if (productos.length-1 > iProducto  && p === "+"){
+      return productos[iProducto+1].id
+    }else if(iProducto > 0  && p === "-"){
+      return productos[iProducto-1].id
     }else{return id}
   }
+  
   function agregarAlCarrito(cantidad){
     setEnCarrito(product)
     addToCart(product, cantidad) // uso el contexto
