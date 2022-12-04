@@ -10,8 +10,7 @@ export default function ItemListContainer() {
 
   useEffect(()=>{
     GetProducts(categoryId).then((res)=>{
-      setProducts(res)
-    console.log(res)}
+      setProducts(res)}
     )
   },[categoryId])
   if(products === null){
