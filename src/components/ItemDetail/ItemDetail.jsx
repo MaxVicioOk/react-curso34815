@@ -24,6 +24,18 @@ export default function ItemDetail({product, productos}) {
     setEnCarrito(product)
     addToCart(product, cantidad) // uso el contexto
   }
+  if(product.title === undefined) {
+    return (
+      <div className="text-center" style={{minHeight: '33vh'}}>
+        <h2 className="row justify-content-center">
+          El Producto No Existe
+        </h2>
+        <Link to={"/"}>
+          <button className='btn btn-outline-dark m-5'>Volver a Productos</button>
+        </Link>
+      </div>
+    )
+  }
   return (
     <div className="row gx-4 gx-lg-5 align-items-center">
         <div className="col-md-6"><img className="card-img-top mb-5 mb-md-0" src={thumbnail} alt={title} /></div>
