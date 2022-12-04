@@ -10,11 +10,11 @@ Este es un proyecto del sitio de un e-commerce desarrollado en el curso de React
 
 ## Herramientas que se usaron para el proyecto:
 
-React JS
-Firebase
-React router dom
-Bootstrap
-SweetAlert
+- React JS
+- Firebase
+- React router dom
+- Bootstrap
+- SweetAlert
 
 ## Detalles del sitio
 
@@ -26,5 +26,5 @@ El sitio es una Single-page application que renderiza las siguientes secciones:
 
 ## Detalles del Curso
 
-Profesor: Santiago Salkin
-Comisión 34815 - Octubre/Diciembre 2022
+- Profesor: Santiago Salkin
+- Comisión 34815 - Octubre/Diciembre 2022
